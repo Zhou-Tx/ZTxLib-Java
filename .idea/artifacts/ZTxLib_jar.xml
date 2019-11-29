@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ZTxLib:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="archive" name="ZTxLib.jar">
+      <element id="module-output" name="ZTxLib" />
+      <element id="module-output" name="ZTxLib.Database" />
+      <element id="module-output" name="ZTxLib.Zip" />
+      <element id="module-output" name="ZTxLib.Mail" />
+      <element id="module-output" name="ZTxLib.Web" />
+      <element id="module-output" name="ZTxLib.Encrypt" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Mail/lib/javax.mail.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

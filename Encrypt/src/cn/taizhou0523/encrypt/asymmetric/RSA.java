@@ -1,4 +1,6 @@
-package cn.taizhou0523.encrypt;
+package cn.taizhou0523.encrypt.asymmetric;
+
+import cn.taizhou0523.encrypt.Base64;
 
 import javax.crypto.Cipher;
 import java.nio.charset.StandardCharsets;

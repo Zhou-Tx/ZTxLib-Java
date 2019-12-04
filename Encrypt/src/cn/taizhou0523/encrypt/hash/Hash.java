@@ -1,4 +1,6 @@
-package cn.taizhou0523.encrypt;
+package cn.taizhou0523.encrypt.hash;
+
+import cn.taizhou0523.encrypt.Algorithms;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -13,11 +15,11 @@ public interface Hash {
     @Override
     String toString();
 
-    static Hash getInstance(String algorithm) throws NoSuchAlgorithmException {
-        switch (algorithm.toUpperCase()) {
-            case "MD5":
+    static Hash getInstance(Algorithms algorithm) throws NoSuchAlgorithmException {
+        switch (algorithm) {
+            case MD5:
                 return new MD5();
-            case "SHA1":
+            case SHA1:
                 return new SHA1();
             default:
                 throw new NoSuchAlgorithmException();

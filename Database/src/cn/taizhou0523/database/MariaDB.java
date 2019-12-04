@@ -9,7 +9,7 @@ class MariaDB extends Database {
 
     private String dbURL, username, password;
 
-    MariaDB(String host, short port, String username, String password, String dbName, String encoding)
+    MariaDB(String host, int port, String username, String password, String dbName, String encoding)
             throws ClassNotFoundException {
         Class.forName("org.mariadb.jdbc.Driver");
         dbURL = String.format("jdbc:mariadb://%s:%d/%s?useUnicode=true&characterEncoding=%s",

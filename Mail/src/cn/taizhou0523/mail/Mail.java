@@ -16,14 +16,12 @@ public abstract class Mail {
     private String senderPassword = null;
     private Message message = null;
 
-    public static Mail getInstance(String className) throws ClassNotFoundException {
-        switch (className.toUpperCase()) {
-            case "QQMAIL":
+    public static Mail getInstance(MailServer mailServer) throws ClassNotFoundException {
+        switch (mailServer) {
+            case QQMail:
                 return new QQMail();
-            case "qqmail":
-                return null;
             default:
-                throw new ClassNotFoundException();
+                return null;
         }
     }
 
@@ -80,5 +78,9 @@ public abstract class Mail {
         transport.connect(sender, senderPassword);
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();
+    }
+
+    public enum  MailServer {
+        QQMail
     }
 }

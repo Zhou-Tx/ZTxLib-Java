@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-class ZipWriter implements Closeable {
+public class ZipWriter implements Closeable {
     private boolean isClosed = false;
     private ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
     private ZipOutputStream zipOutputStream = new ZipOutputStream(byteArrayOutputStream);

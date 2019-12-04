@@ -1,8 +1,12 @@
-package cn.taizhou0523.encrypt;
+package cn.taizhou0523.encrypt.symmetric;
+
+import cn.taizhou0523.encrypt.Algorithms;
 
 import java.security.NoSuchAlgorithmException;
 
 public interface Symmetric {
+
+    void setKey(String key) throws NoSuchAlgorithmException;
 
     byte[] encrypt(byte[] content) throws Exception;
 
@@ -14,16 +18,14 @@ public interface Symmetric {
 
     /**
      * @param algorithm 算法名称
-     * @param key       加解密密钥
+     * @param key 加解密密钥
      * @return 算法实例
      * @throws NoSuchAlgorithmException NoSuchAlgorithmException
      */
-    static Symmetric getInstance(String algorithm, String key) throws NoSuchAlgorithmException {
-        switch (algorithm.toUpperCase()) {
-            case "AES":
-                return new AES(key);
-            case "":
-                return null;
+    static Symmetric getInstance(Algorithms algorithm) throws NoSuchAlgorithmException {
+        switch (algorithm) {
+            case AES:
+                return new RSA();
             default:
                 throw new NoSuchAlgorithmException();
         }

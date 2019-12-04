@@ -1,6 +1,12 @@
 <component name="libraryTable">
   <library name="artifacts">
-    <CLASSES />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.Mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.Zip.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.Web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.Database.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.Encrypt.jar!/" />
+    </CLASSES>
     <JAVADOC />
     <SOURCES />
   </library>

@@ -1,5 +1,6 @@
 package cn.taizhou0523.database;
 
+import java.lang.reflect.Constructor;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,18 +17,28 @@ public abstract class Database {
 
     public abstract void close() throws SQLException;
 
-    public static Database getMySQLInstance(String host, short port, String username, String password, String dbName, String encoding)
-            throws ClassNotFoundException {
-        return new MySQL(host, port, username, password, dbName, encoding);
+    public static Constructor getConstructor(DatabaseDriver driver) throws NoSuchMethodException {
+        Constructor constructor;
+        switch (driver) {
+            case MySQL:
+                constructor = MySQL.class.getDeclaredConstructor(String.class,int.class,String.class,String.class,String.class,String.class);
+                break;
+            case MariaDB:
+                constructor = MariaDB.class.getDeclaredConstructor(String.class,int.class,String.class,String.class,String.class,String.class);
+                break;
+            case SQLite:
+                constructor = SQLite.class.getDeclaredConstructor(String.class);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + driver);
+        }
+        constructor.setAccessible(true);
+        return constructor;
     }
 
-    public static Database getMariaDBInstance(String host, short port, String username, String password, String dbName, String encoding)
-            throws ClassNotFoundException {
-        return new MariaDB(host, port, username, password, dbName, encoding);
-    }
-
-    public static Database getSQLiteInstance(String url)
-            throws ClassNotFoundException {
-        return new SQLite(url);
+    public enum DatabaseDriver {
+        MySQL,
+        MariaDB,
+        SQLite
     }
 }

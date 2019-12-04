@@ -1,4 +1,6 @@
-package cn.taizhou0523.encrypt;
+package cn.taizhou0523.encrypt.symmetric;
+
+import cn.taizhou0523.encrypt.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -11,16 +13,17 @@ import java.security.SecureRandom;
 /**
  * 对称密钥加密算法 AES
  */
-class AES implements Symmetric {
+class RSA implements Symmetric {
 
     // 加解密密钥
-    private SecretKeySpec key;
+    private SecretKeySpec key = null;
 
     /**
-     * @param key 加解密密钥
+     * @param key 密钥值
      * @throws NoSuchAlgorithmException NoSuchAlgorithmException
      */
-    AES(String key) throws NoSuchAlgorithmException {
+    @Override
+    public void setKey(String key) throws NoSuchAlgorithmException {
         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
         keyGenerator.init(128, new SecureRandom(key.getBytes()));
         SecretKey secretKey = keyGenerator.generateKey();

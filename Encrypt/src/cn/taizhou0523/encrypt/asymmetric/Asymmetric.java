@@ -1,4 +1,6 @@
-package cn.taizhou0523.encrypt;
+package cn.taizhou0523.encrypt.asymmetric;
+
+import cn.taizhou0523.encrypt.Algorithms;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -26,16 +28,14 @@ public interface Asymmetric {
     String decrypt(String content) throws Exception;
 
     /**
-     * @param algorithm 算法名称
+     * @param algorithms 算法名称
      * @return 算法实例
      * @throws NoSuchAlgorithmException NoSuchAlgorithmException
      */
-    static Asymmetric getInstance(String algorithm) throws NoSuchAlgorithmException {
-        switch (algorithm.toUpperCase()) {
-            case "RSA":
+    static Asymmetric getInstance(Algorithms algorithm) throws NoSuchAlgorithmException {
+        switch (algorithm) {
+            case RSA:
                 return new RSA();
-            case "":
-                return null;
             default:
                 throw new NoSuchAlgorithmException();
         }

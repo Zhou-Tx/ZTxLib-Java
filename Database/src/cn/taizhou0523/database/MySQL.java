@@ -9,7 +9,7 @@ class MySQL extends Database {
 
     private String dbURL, username, password;
 
-    MySQL(String host, short port, String username, String password, String dbName, String encoding)
+    MySQL(String host, int port, String username, String password, String dbName, String encoding)
             throws ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         dbURL = String.format("jdbc:mysql://%s:%d/%s?useUnicode=true&characterEncoding=%s",

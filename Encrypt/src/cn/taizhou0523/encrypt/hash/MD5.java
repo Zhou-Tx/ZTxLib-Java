@@ -1,23 +1,23 @@
-package cn.taizhou0523.encrypt;
+package cn.taizhou0523.encrypt.hash;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-class SHA1 implements Hash {
+class MD5 implements Hash {
 
     private MessageDigest md5 = null;
 
-    SHA1() {
+    MD5() {
         try {
-            md5 = MessageDigest.getInstance("SHA1");
+            md5 = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
     }
 
-    SHA1(String string) {
+    MD5(String string) {
         this();
         update(string);
     }

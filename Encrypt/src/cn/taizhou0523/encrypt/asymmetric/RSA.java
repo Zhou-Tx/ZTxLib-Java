@@ -15,9 +15,9 @@ import java.security.spec.X509EncodedKeySpec;
 class RSA implements Asymmetric {
 
     // 加密公钥
-    private PublicKey publicKey = null;
+    private PublicKey publicKey;
     // 解密私钥
-    private PrivateKey privateKey = null;
+    private PrivateKey privateKey;
 
     RSA() throws NoSuchAlgorithmException {
         final int keySize = 2048;
@@ -29,13 +29,23 @@ class RSA implements Asymmetric {
     }
 
     @Override
-    public byte[] getPublicKey() {
+    public byte[] getPublicKey_bytes() {
         return publicKey.getEncoded();
     }
 
     @Override
-    public byte[] getPrivateKey() {
+    public byte[] getPrivateKey_bytes() {
         return privateKey.getEncoded();
+    }
+
+    @Override
+    public String getPublicKey() {
+        return Base64.encode(getPublicKey_bytes());
+    }
+
+    @Override
+    public String getPrivateKey() {
+        return Base64.encode(getPrivateKey_bytes());
     }
 
     @Override

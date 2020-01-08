@@ -7,9 +7,13 @@ import java.security.spec.InvalidKeySpecException;
 
 public interface Asymmetric {
 
-    byte[] getPublicKey();
+    byte[] getPublicKey_bytes();
 
-    byte[] getPrivateKey();
+    byte[] getPrivateKey_bytes();
+
+    String getPublicKey();
+
+    String getPrivateKey();
 
     void setPublicKey(String key) throws NoSuchAlgorithmException, InvalidKeySpecException;
 
@@ -28,7 +32,7 @@ public interface Asymmetric {
     String decrypt(String content) throws Exception;
 
     /**
-     * @param algorithms 算法名称
+     * @param algorithm 算法名称
      * @return 算法实例
      * @throws NoSuchAlgorithmException NoSuchAlgorithmException
      */

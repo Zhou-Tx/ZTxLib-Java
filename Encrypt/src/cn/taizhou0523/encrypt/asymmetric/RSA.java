@@ -79,7 +79,7 @@ class RSA implements Asymmetric {
     @Override
     public byte[] encrypt(byte[] content) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.ENCRYPT_MODE, privateKey);
+        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
         return cipher.doFinal(content);
     }
 
@@ -90,7 +90,7 @@ class RSA implements Asymmetric {
     @Override
     public byte[] decrypt(byte[] content) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.DECRYPT_MODE, publicKey);
+        cipher.init(Cipher.DECRYPT_MODE, privateKey);
         return cipher.doFinal(content);
     }
 

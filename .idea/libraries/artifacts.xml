@@ -5,6 +5,8 @@
       <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.jar!/" />
       <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.Web.jar!/" />
       <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.Zip.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.Encrypt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/ZTxLib.Mail.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

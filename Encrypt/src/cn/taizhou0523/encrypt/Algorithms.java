@@ -6,5 +6,6 @@ public enum Algorithms {
     RSA,
 
     MD5,
-    SHA1
+    SHA1,
+    SHA256
 }

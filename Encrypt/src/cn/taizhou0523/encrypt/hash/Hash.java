@@ -21,16 +21,22 @@ public interface Hash {
                 return new MD5();
             case SHA1:
                 return new SHA1();
+            case SHA256:
+                return new SHA256();
             default:
                 throw new NoSuchAlgorithmException();
         }
     }
 
-    static String md5(String string) {
-        return new MD5(string).toString();
+    static String md5(String value) {
+        return new MD5(value).toString();
     }
 
-    static String sha1(String string) {
-        return new SHA1(string).toString();
+    static String sha1(String value) {
+        return new SHA1(value).toString();
+    }
+
+    static String sha256(String value) {
+        return new SHA256(value).toString();
     }
 }

@@ -23,6 +23,8 @@ public interface Hash {
                 return new SHA1();
             case SHA256:
                 return new SHA256();
+            case SHA512:
+                return new SHA512();
             default:
                 throw new NoSuchAlgorithmException();
         }
@@ -38,5 +40,9 @@ public interface Hash {
 
     static String sha256(String value) {
         return new SHA256(value).toString();
+    }
+
+    static String sha512(String value) {
+        return new SHA512(value).toString();
     }
 }

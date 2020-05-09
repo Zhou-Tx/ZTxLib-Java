@@ -5,26 +5,26 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-class SHA256 implements Hash {
+class SHA512 implements Hash {
 
-    private MessageDigest sha256 = null;
+    private MessageDigest sha512 = null;
 
-    SHA256() {
+    SHA512() {
         try {
-            sha256 = MessageDigest.getInstance("SHA-256");
+            sha512 = MessageDigest.getInstance("SHA-512");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
     }
 
-    SHA256(String string) {
+    SHA512(String string) {
         this();
         update(string);
     }
 
     @Override
     public void reset() {
-        sha256.reset();
+        sha512.reset();
     }
 
     @Override
@@ -35,11 +35,11 @@ class SHA256 implements Hash {
 
     @Override
     public void update(String string) {
-        sha256.update(string.getBytes(StandardCharsets.UTF_8));
+        sha512.update(string.getBytes(StandardCharsets.UTF_8));
     }
 
     @Override
     public String toString() {
-        return new BigInteger(1, sha256.digest()).toString(16);
+        return new BigInteger(1, sha512.digest()).toString(16);
     }
 }

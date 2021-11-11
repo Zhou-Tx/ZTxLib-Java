@@ -13,7 +13,7 @@ import java.security.SecureRandom;
 /**
  * 对称密钥加密算法 AES
  */
-class RSA implements Symmetric {
+class AES implements Symmetric {
 
     // 加解密密钥
     private SecretKeySpec key = null;
